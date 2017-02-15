@@ -14,7 +14,9 @@ public class Input {
     static {
         FILE_PATH = "data\\in_file_radius.txt";
     }
+
     private static final double invalidRadius = 0.0;
+
     public static ArrayList<Circle> readFile() throws FileNotFoundException
 
     {

@@ -22,7 +22,6 @@ public class Write {
         for (int i = 0; i < resultLengthList.size(); i++) {
             textToWrite += new StringBuilder().append(radiusText).append(inputRadius.get(i).getRadius()).append("  ").append(lengthText).append(resultLengthList.get(i).getRadius()).append("  ").append(squareText).append(resultSquareList.get(i).getRadius()).append("\n").toString();
         }
-        //System.out.println(textToWrite);
         File file = new File(FILE_PATH);
         boolean isCreated = true;
         if (file.exists()) {
