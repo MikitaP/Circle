@@ -15,27 +15,32 @@ public class Input {
         FILE_PATH = "data\\in_file_radius.txt";
     }
 
-    private static final double invalidRadius = 0.0;
+    private static final double INVALID_RADIUS = 0.0;
 
-    public static ArrayList<Circle> readFile() throws FileNotFoundException
+    public static ArrayList<Circle> readFile()
 
     {
-        Scanner sc = new Scanner(new File(FILE_PATH));
         ArrayList<Circle> list = new ArrayList<>();
-        while (sc.hasNext()) {
-            String currVal;
-            try {
-                currVal = sc.nextLine();
-                if (Double.parseDouble(currVal) > 0) {
-                    list.add(new Circle(Double.parseDouble(currVal)));
-                } else {
+        try {
+            Scanner sc = new Scanner(new File(FILE_PATH));
+
+            while (sc.hasNext()) {
+                String currVal;
+                try {
+                    currVal = sc.nextLine();
+                    if (Double.parseDouble(currVal) > 0) {
+                        list.add(new Circle(Double.parseDouble(currVal)));
+                    } else {
+                        //System.out.println("Incorrect radius: " + currVal);
+                        list.add(new Circle(INVALID_RADIUS));
+                    }
+                } catch (NumberFormatException e) {
                     //System.out.println("Incorrect radius: " + currVal);
-                    list.add(new Circle(invalidRadius));
+                    list.add(new Circle(INVALID_RADIUS));
                 }
-            } catch (NumberFormatException e) {
-                //System.out.println("Incorrect radius: " + currVal);
-                list.add(new Circle(invalidRadius));
             }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
         return list;
     }

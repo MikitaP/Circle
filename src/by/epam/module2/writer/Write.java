@@ -13,14 +13,13 @@ public class Write {
     static {
         FILE_PATH = "data\\out_result.txt";
     }
-
+    private static final String RADIUS_TEXT =  "Radius = ";
+    private static final String LENGTH_TEXT =  "Circumference = ";
+    private static final String SQUARE_TEXT =  "Area = ";
     public static void writeFile(ArrayList<Circle> inputRadius,ArrayList<Circle> resultLengthList,ArrayList<Circle> resultSquareList) {
         String textToWrite = "";
-        String radiusText = "Radius = ";
-        String lengthText = "Circumference = ";
-        String squareText = "Area = ";
         for (int i = 0; i < resultLengthList.size(); i++) {
-            textToWrite += new StringBuilder().append(radiusText).append(inputRadius.get(i).getRadius()).append("  ").append(lengthText).append(resultLengthList.get(i).getRadius()).append("  ").append(squareText).append(resultSquareList.get(i).getRadius()).append("\n").toString();
+            textToWrite += new StringBuilder().append(RADIUS_TEXT).append(inputRadius.get(i).getRadius()).append("  ").append(LENGTH_TEXT).append(resultLengthList.get(i).getRadius()).append("  ").append(SQUARE_TEXT).append(resultSquareList.get(i).getRadius()).append("\n").toString();
         }
         File file = new File(FILE_PATH);
         boolean isCreated = true;
